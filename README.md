@@ -15,7 +15,17 @@ Os objetivos de funções que o sistema tenha são:<br>
     -Adicionar ou consultar livros;<br>
     -Emprestar livros;<br>
     -Receber livros;<br>
-    -Fazer logout;<br>
+    -Fazer logout;<br><br><br>
+
+
+Os componentes do grupo são: <br><br>
+
+
+Iago Mello Moraes, RA: 174802
+Daniel Orpinelli, RA: 169482
+Fillipi Messias Pereira, RA: 102312
+Odair Lopes, RA: 175356
+
 
 
 

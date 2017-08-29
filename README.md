@@ -1,4 +1,4 @@
-﻿# biblioteca_poo2
+﻿# Projeto Easy Biblioteca
 Repositório para projeto em Java de POO2
 
 

@@ -17,6 +17,26 @@ Os objetivos de funções que o sistema tenha são:<br>
     -Receber livros;<br>
     -Fazer logout;<br><br><br>
 
+As classes idealizadas para o projeto são:
+
+AdminLogin<br>
+AdminSucesso<br>
+LivrosDao<br>
+LivrosForm<br>
+BD<br>
+DeletarBibliotecario<br>
+EmprestarLivroForm<br>
+BibliotecarioDao<br>
+BibliotecarioForm<br>
+BibliotecarioLogin<br>
+BibliotecarioSucesso<br>
+Biblioteca<br>
+DevolverLivro<br>
+DevolverLivroDao<br>
+VerLivros<br>
+VerLivrosEmprestados<br>
+VerBibliotecarios<br><br>
+
 
 Os componentes do grupo são: <br><br>
 

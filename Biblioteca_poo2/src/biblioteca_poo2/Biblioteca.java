@@ -19,24 +19,9 @@ public class Biblioteca extends JFrame {
 	static Biblioteca frame;
 	private JPanel contentPane;
 
-
-
-
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					frame= new Biblioteca();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
 	}
-
-
-
 
 	public Biblioteca() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -2,10 +2,8 @@ package biblioteca_poo2;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,7 +32,7 @@ public class VisaoBibliotecario extends JFrame {
 
 
 	public VisaoBibliotecario() {
-		/*setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -42,37 +40,22 @@ public class VisaoBibliotecario extends JFrame {
 		setContentPane(contentPane);
 		String data[][]=null;
 		String column[]=null;
+                Bibliotecario bibliotecario = null;
 		try{
-			Connection con=DB.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from librarian",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs=ps.executeQuery();
-			
-			ResultSetMetaData rsmd=rs.getMetaData();
-			int cols=rsmd.getColumnCount();
-			column=new String[cols];
-			for(int i=1;i<=cols;i++){
-				column[i-1]=rsmd.getColumnName(i);
-			}
-			
-			rs.last();
-			int rows=rs.getRow();
-			rs.beforeFirst();
-
-			data=new String[rows][cols];
-			int count=0;
-			while(rs.next()){
-				for(int i=1;i<=cols;i++){
-					data[count][i-1]=rs.getString(i);
-				}
-				count++;
-			}
-			con.close();
-		}catch(Exception e){System.out.println(e);}
+                    String path = Bibliotecario.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	            FileInputStream fileIn = new FileInputStream(path + "Bibliotecario.txt");
+                    ObjectInputStream in = new ObjectInputStream(fileIn);
+                    bibliotecario = (Bibliotecario)in.readObject();
+                    in.close();
+                    fileIn.close();
+		}catch(Exception e){
+                    System.out.println(e);
+                }
 		
 		table = new JTable(data,column);
 		JScrollPane sp=new JScrollPane(table);
 		
-		contentPane.add(sp, BorderLayout.CENTER);*/
+		contentPane.add(sp, BorderLayout.CENTER);
 	}
 
 }

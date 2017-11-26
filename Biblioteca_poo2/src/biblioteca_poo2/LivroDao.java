@@ -1,22 +1,25 @@
 package biblioteca_poo2;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class LivroDao {
 public static int save(String callno,String name,String author,String publisher,int quantity){
 	int status=0;
-	/*try{
-		Connection con=DB.getConnection();
-		PreparedStatement ps=con.prepareStatement("insert into books(callno,name,author,publisher,quantity) values(?,?,?,?,?)");
-		ps.setString(1,callno);
-		ps.setString(2,name);
-		ps.setString(3,author);
-		ps.setString(4,publisher);
-		ps.setInt(5,quantity);
-		status=ps.executeUpdate();
-		con.close();
-	}catch(Exception e){System.out.println(e);}*/
+	try{
+            String path = Livro.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+             Livro livro = new Livro(callno,name,author,publisher,quantity);
+	     FileOutputStream saveFile = new FileOutputStream(path + "Livros.txt");
+             ObjectOutputStream stream = new ObjectOutputStream(saveFile);
+             
+             stream.writeObject(livro);
+             stream.close();
+             saveFile.close();
+             status = 1;
+	}catch(Exception e)
+        {
+            System.out.println(e);
+        }
 	return status;
 }
 }

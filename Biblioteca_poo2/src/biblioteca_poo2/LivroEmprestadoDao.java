@@ -1,6 +1,5 @@
 package biblioteca_poo2;
 
-import java.sql.*;
 public class LivroEmprestadoDao {
 	
 public static boolean checkBook(String bookcallno){

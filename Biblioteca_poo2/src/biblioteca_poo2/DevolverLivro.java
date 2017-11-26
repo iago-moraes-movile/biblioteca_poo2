@@ -51,13 +51,13 @@ public class DevolverLivro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblDevolverLivro = new JLabel("Return Book");
+		JLabel lblDevolverLivro = new JLabel("Devolver livro");
 		lblDevolverLivro.setForeground(Color.GRAY);
 		lblDevolverLivro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel lblBookCallno = new JLabel("Book Callno:");
+		JLabel lblBookCallno = new JLabel("Numero emprestimo:");
 		
-		JLabel lblStudentId = new JLabel("Student Id:");
+		JLabel lblStudentId = new JLabel("RA:");
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -65,28 +65,28 @@ public class DevolverLivro extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		
-		JButton btnDevolverLivro = new JButton("Return Book");
+		JButton btnDevolverLivro = new JButton("Devolver livro");
 		btnDevolverLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String bookcallno=textField.getText();
 				int studentid=Integer.parseInt(textField_1.getText());
 				int i=DevolverLivroDao.delete(bookcallno, studentid);
 				if(i>0){
-					JOptionPane.showMessageDialog(DevolverLivro.this,"Book returned successfully!");
+					JOptionPane.showMessageDialog(DevolverLivro.this,"Livro devolvido com sucesso");
 					Bibliotecario_Sucesso.main(new String[]{});
 					frame.dispose();
 					
 				}else{
-					JOptionPane.showMessageDialog(DevolverLivro.this,"Sorry, unable to return book!");
+					JOptionPane.showMessageDialog(DevolverLivro.this,"Não foi possivel devolver o livro!");
 				}
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Note: Check the book properly!");
+		JLabel lblNewLabel = new JLabel("Verifcar o livro corretamente!");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		
-		JButton btnBack = new JButton("Back");
+		JButton btnBack = new JButton("Voltar");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Bibliotecario_Sucesso.main(new String[]{});

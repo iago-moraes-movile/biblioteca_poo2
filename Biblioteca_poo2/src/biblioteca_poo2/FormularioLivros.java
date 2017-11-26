@@ -55,7 +55,7 @@ public class FormularioLivros extends JFrame {
 		lblAddBooks.setForeground(Color.GRAY);
 		lblAddBooks.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel lblCallNo = new JLabel("Numero Emprestimo:");
+		JLabel lblCallNo = new JLabel("ID Livro:");
 		
 		JLabel lblName = new JLabel("Nome:");
 		

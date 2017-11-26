@@ -49,7 +49,7 @@ public class AdminSucesso extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Bibliotecario_Sucesso.main(new String[]{});
+			FormularioBibliotecario.main(new String[]{});
 			frame.dispose();
 			}
 		});

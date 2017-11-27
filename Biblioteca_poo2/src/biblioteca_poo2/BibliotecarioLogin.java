@@ -39,8 +39,6 @@ public class BibliotecarioLogin extends JFrame {
 		});
 	}
 
-
-
 	public BibliotecarioLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -48,7 +46,7 @@ public class BibliotecarioLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblAdminLoginForm = new JLabel("Funcionário Login Form");
+		JLabel lblAdminLoginForm = new JLabel("Funcionário Login");
 		lblAdminLoginForm.setForeground(Color.GRAY);
 		lblAdminLoginForm.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		

@@ -27,6 +27,8 @@ public class AdminLogin extends JFrame {
 
 
 	public static void main(String[] args) {
+            int a = 1;
+            System.out.println(a);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

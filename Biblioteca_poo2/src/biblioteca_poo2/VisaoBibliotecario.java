@@ -38,8 +38,7 @@ public class VisaoBibliotecario extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		String data[][]=null;
-		String column[]=null;
+		String column[]= {"Nome", "Endereco","Cidade", "Email", "Telefone"};
                 Bibliotecario bibliotecario = null;
 		try{
                     String path = Bibliotecario.class.getProtectionDomain().getCodeSource().getLocation().getPath();
@@ -48,14 +47,14 @@ public class VisaoBibliotecario extends JFrame {
                     bibliotecario = (Bibliotecario)in.readObject();
                     in.close();
                     fileIn.close();
-		}catch(Exception e){
-                    System.out.println(e);
-                }
-		
-		table = new JTable(data,column);
+                    Object[][] data = {{bibliotecario.name, bibliotecario.address,bibliotecario.city,bibliotecario.email, bibliotecario.contact}};
+                table = new JTable(data,column);
 		JScrollPane sp=new JScrollPane(table);
 		
 		contentPane.add(sp, BorderLayout.CENTER);
+		}catch(Exception e){
+                    System.out.println(e);
+                }
 	}
 
 }

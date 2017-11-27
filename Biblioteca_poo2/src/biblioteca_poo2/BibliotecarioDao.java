@@ -1,11 +1,11 @@
 package biblioteca_poo2;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
 public class BibliotecarioDao {
 
 	
@@ -27,28 +27,31 @@ public class BibliotecarioDao {
                 }
 		return status;
 	}
-	public static int delete(int id){
+	public static int delete(String id){
 		int status=0;
-		//try{
-		//	Connection con=DB.getConnection();
-		//	PreparedStatement ps=con.prepareStatement("delete from librarian where id=?");
-		//	ps.setInt(1,id);
-		//	status=ps.executeUpdate();
-		//	con.close();
-		//}catch(Exception e){System.out.println(e);}
+		try{
+                    Bibliotecario bibliotecario = null;
+                    String path = Bibliotecario.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+                    FileInputStream fileIn = new FileInputStream(path + "Bibliotecario.txt");
+                    ObjectInputStream in = new ObjectInputStream(fileIn);
+                    bibliotecario = (Bibliotecario)in.readObject();
+                    in.close();
+                    fileIn.close();
+                    if (id.equals(bibliotecario.name)){
+                        File arquivo = new File(path + "Bibliotecario.txt");
+                        arquivo.delete();
+                        status = 1;
+                    }
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                }
 		return status;
 	}
 
 	public static boolean validate(String name,String password){
 		boolean status=false;
 		try{
-		//	Connection con=DB.getConnection();
-		//	PreparedStatement ps=con.prepareStatement("select * from librarian where name=? and password=?");
-		//	ps.setString(1,name);
-		//	ps.setString(2,password);
-		//	ResultSet rs=ps.executeQuery();
-		//	status=rs.next();
-		//	con.close();
                 Bibliotecario bibliotecario = null;
                 String path = Bibliotecario.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	        FileInputStream fileIn = new FileInputStream(path + "Bibliotecario.txt");

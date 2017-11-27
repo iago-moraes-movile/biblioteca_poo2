@@ -54,7 +54,7 @@ public class FormularioLivroEmprestado extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setForeground(Color.GRAY);
 		
-		JLabel lblBookName = new JLabel("Livro:");
+		JLabel lblBookName = new JLabel("ID Livro:");
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -102,7 +102,7 @@ public class FormularioLivroEmprestado extends JFrame {
 			}
 		});
 		
-		JButton btnBack = new JButton("Back");
+		JButton btnBack = new JButton("Voltar");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Bibliotecario_Sucesso.main(new String[]{});

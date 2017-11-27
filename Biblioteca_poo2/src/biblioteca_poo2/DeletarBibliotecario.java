@@ -44,7 +44,7 @@ public class DeletarBibliotecario extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblEnterId = new JLabel("Id do Funcionário:");
+		JLabel lblEnterId = new JLabel("Nome do Funcionário:");
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -56,8 +56,8 @@ public class DeletarBibliotecario extends JFrame {
 				if(sid==null||sid.trim().equals("")){
 					JOptionPane.showMessageDialog(DeletarBibliotecario.this,"Campo não pode ser vazio");
 				}else{
-					int id=Integer.parseInt(sid);
-					int i=BibliotecarioDao.delete(id);
+					String nome=sid;
+					int i=BibliotecarioDao.delete(nome);
 					if(i>0){
 						JOptionPane.showMessageDialog(DeletarBibliotecario.this,"Registro deletado com sucesso!");
 					}else{

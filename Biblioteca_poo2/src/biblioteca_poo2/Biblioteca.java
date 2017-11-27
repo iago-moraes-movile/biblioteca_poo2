@@ -1,6 +1,5 @@
 package biblioteca_poo2;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -30,12 +29,13 @@ public class Biblioteca extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblBibliotecaManagement = new JLabel("Gerenciamento da Biblioteca - JavaTpoint");
+		JLabel lblBibliotecaManagement = new JLabel("Gerenciamento da Biblioteca");
 		lblBibliotecaManagement.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblBibliotecaManagement.setForeground(Color.GRAY);
 		
 		JButton btnAdminLogin = new JButton("Admin Login");
 		btnAdminLogin.addActionListener(new ActionListener() {
+                        @Override
 			public void actionPerformed(ActionEvent e) {
 			AdminLogin.main(new String[]{});
 			frame.dispose();
@@ -45,6 +45,7 @@ public class Biblioteca extends JFrame {
 		
 		JButton btnLibrarianLogin = new JButton("Bibliotecario Login");
 		btnLibrarianLogin.addActionListener(new ActionListener() {
+                        @Override
 			public void actionPerformed(ActionEvent arg0) {
 				BibliotecarioLogin.main(new String[]{});
 			}

@@ -2,10 +2,8 @@ package biblioteca_poo2;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -42,39 +40,23 @@ public class VisaoLivrosEmprestados extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		String data[][]=null;
-		String column[]=null;
-		/*try{
-			Connection con=DB.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from issuebooks",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs=ps.executeQuery();
-			
-			ResultSetMetaData rsmd=rs.getMetaData();
-			int cols=rsmd.getColumnCount();
-			column=new String[cols];
-			for(int i=1;i<=cols;i++){
-				column[i-1]=rsmd.getColumnName(i);
-			}
-			
-			rs.last();
-			int rows=rs.getRow();
-			rs.beforeFirst();
-
-			data=new String[rows][cols];
-			int count=0;
-			while(rs.next()){
-				for(int i=1;i<=cols;i++){
-					data[count][i-1]=rs.getString(i);
-				}
-				count++;
-			}
-			con.close();
-		}catch(Exception e){System.out.println(e);}*/
-		
-		table = new JTable(data,column);
+		String column[]= {"ID Livro","RA", "Nome Aluno","Contato"};
+                Emprestimo emprestimo = null;
+		try{
+		    String path = Emprestimo.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	            FileInputStream fileIn = new FileInputStream(path + "Emprestimo.txt");
+                    ObjectInputStream in = new ObjectInputStream(fileIn);
+                    emprestimo = (Emprestimo)in.readObject();
+                    in.close();
+                    fileIn.close();
+                    Object[][] data = {{emprestimo.callno, emprestimo.studentid,emprestimo.studentname,emprestimo.studentcontact}};
+                table = new JTable(data,column);
 		JScrollPane sp=new JScrollPane(table);
 		
 		contentPane.add(sp, BorderLayout.CENTER);
+		}catch(Exception e){
+                    System.out.println(e);
+                }
 	}
 
 }
